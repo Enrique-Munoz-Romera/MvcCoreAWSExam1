@@ -1,0 +1,58 @@
+﻿@model IEnumerable<MvcCoreAWSExam1.Models.Coche>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1 style="color:orange">Exam AWS RDS-EC2</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.modelo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.conductor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.imagen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.marca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.modelo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.conductor)
+            </td>
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.imagen)" alt=" Coche" style="height:150px;width:150px"/>                
+            </td>
+            <td>
+                @Html.ActionLink("Details", "SearchCar", new { id=item.id }) |
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
